@@ -1,0 +1,63 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index", 
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/emergency/index",
+			"style": {
+				"navigationBarTitleText": "紧急服务"
+			}
+		},
+		{
+			"path": "pages/accident/add",
+			"style": {
+				"navigationBarTitleText": "添加事故信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/accident/search",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/accident/recognition",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "事故定责助手",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于事故地点定位"
+		}
+	}
+}

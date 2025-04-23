@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端登录界面原型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .phone-container {
+            flex: 1;
+            max-width: 375px;
+            height: 667px;
+            background: #fff;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 12px solid #333;
+            border-radius: 40px;
+            pointer-events: none;
+        }
+
+        .login-container {
+            padding: 40px 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #4A90E2;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 12px;
+            background: #fff;
+            padding: 0 5px;
+            color: #4A90E2;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #357ABD;
+        }
+
+        .design-specs {
+            flex: 1;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .specs-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .specs-section {
+            margin-bottom: 30px;
+        }
+
+        .specs-section h3 {
+            color: #4A90E2;
+            margin-bottom: 10px;
+        }
+
+        .specs-section p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .color-item {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        .interaction-demo {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="phone-container">
+            <div class="phone-frame"></div>
+            <div class="login-container">
+                <div class="logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%234A90E2'/%3E%3Ctext x='50' y='50' font-size='40' text-anchor='middle' dy='.3em' fill='white'%3EL%3C/text%3E%3C/svg%3E" alt="Logo">
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder=" ">
+                        <label for="username">用户名</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder=" ">
+                        <label for="password">密码</label>
+                    </div>
+                </div>
+                <button class="login-btn">登录</button>
+            </div>
+        </div>
+
+        <div class="design-specs">
+            <h2 class="specs-title">设计规范说明</h2>
+            
+            <div class="specs-section">
+                <h3>布局设计</h3>
+                <p>采用垂直居中布局，确保视觉重心稳定。顶部Logo区域占比20%，表单区域占比60%，底部按钮区域占比20%。</p>
+            </div>
+
+            <div class="specs-section">
+                <h3>配色方案</h3>
+                <div class="color-palette">
+                    <div class="color-item" style="background: #4A90E2;"></div>
+                    <div class="color-item" style="background: #357ABD;"></div>
+                    <div class="color-item" style="background: #F5F5F5;"></div>
+                </div>
+                <p>主色调：蓝色系 (#4A90E2) - 传达专业、可信赖感</p>
+                <p>背景色：浅灰 (#F5F5F5) - 提供舒适的视觉体验</p>
+            </div>
+
+            <div class="specs-section">
+                <h3>交互设计</h3>
+                <div class="interaction-demo">
+                    <p>1. 输入框获得焦点时，标签动画上浮</p>
+                    <p>2. 按钮点击时有轻微下沉效果</p>
+                    <p>3. 输入框获得焦点时显示蓝色边框提示</p>
+                </div>
+            </div>
+
+            <div class="specs-section">
+                <h3>字体规范</h3>
+                <p>标题：24px</p>
+                <p>输入框：16px</p>
+                <p>按钮文字：16px</p>
+                <p>标签文字：12px</p>
+            </div>
+
+            <div class="specs-section">
+                <h3>间距规范</h3>
+                <p>Logo与表单间距：40px</p>
+                <p>输入框间距：20px</p>
+                <p>表单与按钮间距：30px</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加输入框焦点效果
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+
+        // 添加按钮点击效果
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+        });
+    </script>
+</body>
+</html> 
